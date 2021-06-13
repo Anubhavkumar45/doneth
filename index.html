@@ -75,6 +75,32 @@
             </div>
         </div>
 
+        <button class="intent_button" id="API_button" data-toggle="modal" data-target="#IntentTriggerModal_getAPI">🔑 key</button>
+
+        <div class="modal fade" id="IntentTriggerModal_getAPI" tabindex="-1" role="dialog" aria-labelledby="IntentBaseModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+        
+                    <div class="modal-body">
+                        <div class="modal_header">
+                            <button class="close" id="close_key_modal" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                        </div>
+        
+                        <div id="modal_content"><div class='content_block'>
+                            <p class='summary_text' style="min-height: 10px">Enter OpenAI Key</p>
+                            <input id='api_key_input' class='input_box'
+                                placeholder='Paste key here'/>
+                        <button class='intent_button'
+                                id='get_api_key_button' onclick='set_openai_key()'>Set Key</button>
+                            <br /><br />
+                        </div></div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
 
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <script src='./script.js'></script>

@@ -1,4 +1,4 @@
-var Openai_key = "Bearer OPENAI_API_KEY";
+var Openai_key = "Bearer ";
 
 function addTask() {
   var todo = document.getElementById("addTask").value;
@@ -22,12 +22,37 @@ function countTasks() {
 
 function pageLoad() {
   var data = localStorage.getItem("todo-blob-1");
-  document.getElementById("task_list").innerHTML = data;
+  if (data) {
+    document.getElementById("task_list").innerHTML = data;
+  }
 
   countTasks();
+
+  getapikey();
 }
 
 pageLoad();
+
+function getapikey() {
+  var key = localStorage.getItem("openai_key");
+  if (!key) {
+    var button = document.getElementById("API_button");
+    button.click();
+  } else {
+    Openai_key += key.trim();
+  }
+}
+
+function set_openai_key() {
+  var key_data = document.getElementById("api_key_input").value;
+  console.log(key_data);
+
+  Openai_key += key_data;
+
+  localStorage.setItem("openai_key", key_data.trim());
+
+  document.getElementById("close_key_modal").click();
+}
 
 function modalContent(intent) {
   var intents_all = intent.split("/");
