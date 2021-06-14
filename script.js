@@ -52,6 +52,10 @@ function set_openai_key() {
   localStorage.setItem("openai_key", key_data.trim());
 
   document.getElementById("close_key_modal").click();
+
+  setTimeout(function () {
+    location.reload();
+  }, 100);
 }
 
 function modalContent(intent) {

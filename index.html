@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <button class="intent_button" id="API_button" data-toggle="modal" data-target="#IntentTriggerModal_getAPI">🔑 key</button>
+        <button class="intent_button" id="API_button" data-toggle="modal" data-target="#IntentTriggerModal_getAPI">Edit 🔑</button>
 
         <div class="modal fade" id="IntentTriggerModal_getAPI" tabindex="-1" role="dialog" aria-labelledby="IntentBaseModalLabel"
             aria-hidden="true">
@@ -89,8 +89,9 @@
         
                         <div id="modal_content"><div class='content_block'>
                             <p class='summary_text' style="min-height: 10px; margin: unset;">Enter OpenAI Key</p>
-                            <input id='api_key_input' class='input_box'
+                            <br/><input id='api_key_input' class='input_box'
                                 placeholder='Paste key here'/>
+                                <br/><br/>
                         <button class='intent_button'
                                 id='get_api_key_button' onclick='set_openai_key()'>Set Key</button>
                             <br /><br />
