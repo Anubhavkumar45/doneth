@@ -150,6 +150,9 @@ async function getintent(prompt) {
       console.log(xhr.responseText);
 
       if (xhr.status == 401) {
+        var button = document.getElementById("add_task_button");
+        button.innerHTML = "Add task 🤠";
+
         document.getElementById("task_list").innerHTML =
           "<p class='summary_text' style='margin-left:0px'>" +
           JSON.parse(xhr.responseText).error.message +
