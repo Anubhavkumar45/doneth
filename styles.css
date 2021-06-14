@@ -158,7 +158,8 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50px;
 }
 
-#IntentTriggerModal {
+#IntentTriggerModal,
+#IntentTriggerModal_getAPI {
   backdrop-filter: blur(10px);
 }
 

@@ -316,7 +316,7 @@ function getSummary() {
 function renderMovieRecommend() {
   var html =
     "<div class='content_block'>\
-        <textarea id='movie_recommender' class='input_box_big' rows='4' cols='50' placeholder='Find movies similar to?'></textarea>\
+        <textarea id='movie_recommender' class='input_box_big' rows='4' cols='50' placeholder='Find movies similar to Interstellar . . .'></textarea>\
     <button class='intent_button' onclick='renderMovieRecommend()'>Reset</button><button class='intent_button' id='movie_recommend_button' onclick='getMovieRecommendation()'>Find movies</button>\
      <br/><br/>\
     </div>";
@@ -325,10 +325,38 @@ function renderMovieRecommend() {
 }
 
 function getMovieRecommendation() {
+  var prompt_text =
+    'Q : "The Godfather", \
+A : "Crime, drama, The Godfather II, The Sopranos, Goodfellas, Peaky Blinders, The Departed"\
+Q : "Crime"\
+A : "Peaky Blinders, Knives Out, Mare of Easttown, Lupin, Godfather, Money Heist, Baby Driver"\
+\
+Q : "Friends"\
+A : "Comedy, Sitcom, The Big Bang Theory, How I met your mother, Seinfield, Two and a half men, Joey"\
+\
+Q : "Titanic"\
+A : "Romance, Tragedy, Leonardo Di Caprio, The Great Gatsby, The Revenant, Romeo and Juliet, A walk to remember, Forrest Gump"\
+\
+Q : "Inception"\
+A : "Sci-Fi, Action, Cristopher Nolan, The Prestige, The Matrix, Memento, Limitless, Oblivion, Coherence"\
+\
+Q : "Interstellar"\
+A : "Sci-Fi, Adventure, Space, Cristopher Nolan,The Martian, Apollo 13, Gravity, Arrival, Passengers, Firefly"\
+\
+Q : "Breaking Bad"\
+A : "Crime, Drama, Thriller, Better Call Saul, Ozark, Prison Break, Power, Peaky Blinders, Bad Blood"\
+\
+Q : "Toy Story"\
+A : "kids, Animation, Friendship, Monsters Inc, Toy Story 3, Up, Finding Nemo, The Lego Movie, Shrek"\
+\
+Q : "The Avengers"\
+A : "Sci-fi, Adventure, Thriller, Iron Man 3, Thor, The Winter Soldier, The Avengers Infinity War, The Avengers Endgame, The Incredible Hulk, Spiderman Homecoming"\
+\
+Q : "The Notebook"\
+A : "Love, Drama, Romance, The Fault in our stars, The Last Song, A walk to remember, Keith, Blue Valentine"';
+
   var input =
-    "1. Gravity\n\n2. The Fault in Our Stars\n\n3. The Hunger Games: Mockingjay – Part 1\n\n4.  " +
-    document.getElementById("movie_recommender").value +
-    "\n\n";
+    prompt_text + document.getElementById("movie_recommender").value + "\n\n";
 
   document.getElementById("movie_recommend_button").innerHTML =
     "🍿 munching . . .";
