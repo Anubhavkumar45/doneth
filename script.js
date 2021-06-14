@@ -151,9 +151,9 @@ async function getintent(prompt) {
 
       if (xhr.status == 401) {
         document.getElementById("task_list").innerHTML =
-          "<p class='summary_text'>" +
+          "<p class='summary_text' style='margin-left:0px'>" +
           JSON.parse(xhr.responseText).error.message +
-          "</p><br/><br/><button class='intent_button' id='API_button' data-toggle='modal' data-target='#IntentTriggerModal_getAPI'>🔑 Set key</button>";
+          "</p><br/><br/><button class='intent_button' data-toggle='modal' data-target='#IntentTriggerModal_getAPI'>🔑 Set key</button>";
       } else {
         return_value = JSON.parse(xhr.responseText).choices[0].text;
         //console.log(return_value);
