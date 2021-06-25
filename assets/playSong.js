@@ -24,7 +24,7 @@ function renderPlaySong(intent) {
     ")'>Play " +
     intents_all[1] +
     " on Spotify</button>\
-    \
+    <br/>\
     </div>";
 
   document.getElementById("modal_content").innerHTML = html;

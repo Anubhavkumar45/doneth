@@ -10,12 +10,12 @@ function renderOpenMap(intent) {
     "</b></p>\
     <img class='banner_image' src='https://media.giphy.com/media/Y09OEdHBCGpBF7NUMN/giphy.gif'/><br/>\
     <button class='spotify_open_button'\
-        onclick='openUber()'>🚕 Call a cab</button>\
-    <button class='spotify_open_button'\
         onclick='openMaps(" +
     param +
     ")'>Show Directions ➡️</button>\
-    \
+    <button class='spotify_open_button'\
+        onclick='openUber()'>🚕 Call a cab</button>\
+    <br/>\
     </div>";
 
   document.getElementById("modal_content").innerHTML = html;
