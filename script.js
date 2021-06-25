@@ -66,6 +66,7 @@ function modalContent(intent) {
     "food-recipe",
     "write-essay",
     "make-summary",
+    "play-song",
   ];
 
   switch (intents_all[0]) {
@@ -80,6 +81,9 @@ function modalContent(intent) {
       break;
     case intent_apps[3]:
       renderMakeSummary();
+      break;
+    case intent_apps[4]:
+      renderPlaySong(intent);
       break;
     default:
       var intent_pill = "";

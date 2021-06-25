@@ -342,3 +342,20 @@ button:active {
   background-color: tomato;
   color: white;
 }
+
+/* ----------------------- Song Styles ------------------------------ */
+.spotify_open_button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(34, 34, 34);
+  padding: 15px 50px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.banner_image {
+  width: 50%;
+}
