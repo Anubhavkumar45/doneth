@@ -56,37 +56,13 @@ function renderMovieRecommend() {
 
 function getMovieRecommendation() {
   var prompt_text =
-    'Q : "The Godfather"\
-A : "Crime/drama/The Godfather II/The Sopranos/Goodfellas/Peaky Blinders/The Departed"\
-Q : "Crime"\
-A : "Peaky Blinders/Knives Out/Mare of Easttown/Lupin/Godfather/Money Heist/Baby Driver"\
-\
-Q : "Friends"\
-A : "Comedy/Sitcom/The Big Bang Theory/How I met your mother/Seinfield/Two and a half men/Joey"\
-\
-Q : "Titanic"\
-A : "Romance/Tragedy/Leonardo Di Caprio/The Great Gatsby/The Revenant/Romeo and Juliet/A walk to remember/Forrest Gump"\
-\
-Q : "Inception"\
-A : "Sci-Fi/Action/Cristopher Nolan/The Prestige/The Matrix/Memento/Limitless/Oblivion/Coherence"\
-\
-Q : "Interstellar"\
-A : "Sci-Fi/Adventure/Space/Cristopher Nolan,The Martian/Apollo 13/Gravity/Arrival/Passengers/Firefly"\
-\
-Q : "Breaking Bad"\
-A : "Crime/Drama/Thriller/Better Call Saul/Ozark/Prison Break/Power/Peaky Blinders/Bad Blood"\
-\
-Q : "Toy Story"\
-A : "kids/Animation/Friendship/Monsters Inc/Toy Story 3/Up/Finding Nemo/The Lego Movie/Shrek"\
-\
-Q : "The Avengers"\
-A : "Sci-fi/Adventure/Thriller/Iron Man 3/Thor/The Winter Soldier/The Avengers Infinity War/The Avengers Endgame/The Incredible Hulk/Spiderman Homecoming"\
-\
-Q : "The Notebook"\
-A : "Love/Drama/Romance/The Fault in our stars/The Last Song/A walk to remember/Keith/Blue Valentine"';
+    "Movie:The Godfather\nSimilar:Drama-The Godfather II-The Sopranos-Goodfellas-Peaky Blinders-The Departed\nMovie:Titanic\nSimilar:Romance-Drama-The Great Gatsby-The Revenant-Romeo and Juliet-A walk to remember-Forrest Gump\nMovie:Inception\nSimilar:Adventure-Thriller-The Prestige-The Matrix-Memento-Limitless-Oblivion-Coherence\nMovie:Interstellar\nSimilar:Sci-fi-Adventure-The Martian-Apollo 13-Gravity-Arrival-Passengers-Firefly\nMovie:Toy Story\nSimilar:Animation-Comedy-Monsters Inc-Toy Story 3-Up-Finding Nemo-The Lego Movie-Shrek\nMovie:The Avengers\nSimilar:Sci-fi-Adventure-Iron Man 3-Thor-Captain America The Winter Soldier-The Avengers Infinity War-The Avengers Endgame-The Incredible Hulk-Spiderman Homecoming\nMovie:The Notebook\nSimilar:Romance-Drama-The Fault in our stars-The Last Song-A walk to remember-Keith-Blue Valentine-Her-Titanic\nMovie:Knives Out\nSimilar:Drama-Suspense-Gone Girl-American Hustle-GreatNightcrawler-La la land-Boyhood-The Machinist\nMovie:Avatar\nSimilar:Fantasy-Sci-fi-Donnie Darko-The Lord of the Rings-Shape of Water-Wonder Woman-Harry Potter\nMovie:The Shining\nSimilar:Horror-Thriller-IT-Don't Breathe-JAWS-A Quiet Place-The Conjuring-The Shining-The Witch-The Nun\nMovie:The Revenant\nSimilar:Adventure-Thriller-Life of Pi-Jurassic Park-Godzilla-The Mummy-Taxi Driver-Spotlight-Moonlight-Schindler's List\nMovie:Inglorious Bastards\nSimilar:Drama-War-Forrest GumpAmerican Sniper-Pearl Harbour-Saving Private Ryan-12 Strong-Dunkirk-The Imitation Game-Atonement\nMovie:The Last of the Mohicans\nSimilar:Adventure-War-Gladiator-Braveheart-The Patriot-The Last Samurai-The Hobbit-Troy-King Arthur-Brave\nMovie:The Lord of the Rings\nSimilar:FantasyAdventureThe Hobbit-The Chronicles of Narnia-Harry Potter-The Wheel of Time-The Dark is Rising-The Golden Compass-The Hunger Games\nMovie:The Ten Commandments\nSimilar:Drama-Adventure-The King's Speech-Exodus: Gods and Kings-The Bible-The Passion of the Christ-The Nativity Story-The Chronicles of Narnia\nMovie:The Girl with the Dragon Tattoo\nSimilar:Crime-Drama-Law and Order SVUCSI-Mindhunter-The Fall-The Killing-The Great British Baking Show-The Sopranos\nMovie:Scarface\nSimilar:Crime-Drama-The Untouchables-Goodfellas-Wolf of Wall Street-The Departed-The Godfather II-The Dark Knight-The Departed";
 
   var input =
-    prompt_text + document.getElementById("movie_recommender").value + "\n\n";
+    prompt_text +
+    "\nMovie:" +
+    document.getElementById("movie_recommender").value +
+    "\n";
 
   document.getElementById("movie_recommend_button").innerHTML =
     "🍿 munching . . .";
@@ -124,11 +100,66 @@ A : "Love/Drama/Romance/The Fault in our stars/The Last Song/A walk to remember/
 
   var data = {
     prompt: input,
-    temperature: 0.0,
-    max_tokens: 100,
+    temperature: 0.7,
+    max_tokens: 64,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
+    stop: ["\n"],
+  };
+  console.log(data);
+
+  xhr.send(JSON.stringify(data));
+}
+
+function getSpecificGenre(param) {
+  var prompt_text =
+    "Movie:The Godfather\nSimilar:Drama-The Godfather II-The Sopranos-Goodfellas-Peaky Blinders-The Departed\nMovie:Titanic\nSimilar:Romance-Drama-The Great Gatsby-The Revenant-Romeo and Juliet-A walk to remember-Forrest Gump\nMovie:Inception\nSimilar:Adventure-Thriller-The Prestige-The Matrix-Memento-Limitless-Oblivion-Coherence\nMovie:Interstellar\nSimilar:Sci-fi-Adventure-The Martian-Apollo 13-Gravity-Arrival-Passengers-Firefly\nMovie:Toy Story\nSimilar:Animation-Comedy-Monsters Inc-Toy Story 3-Up-Finding Nemo-The Lego Movie-Shrek\nMovie:The Avengers\nSimilar:Sci-fi-Adventure-Iron Man 3-Thor-Captain America The Winter Soldier-The Avengers Infinity War-The Avengers Endgame-The Incredible Hulk-Spiderman Homecoming\nMovie:The Notebook\nSimilar:Romance-Drama-The Fault in our stars-The Last Song-A walk to remember-Keith-Blue Valentine-Her-Titanic\nMovie:Knives Out\nSimilar:Drama-Suspense-Gone Girl-American Hustle-GreatNightcrawler-La la land-Boyhood-The Machinist\nMovie:Avatar\nSimilar:Fantasy-Sci-fi-Donnie Darko-The Lord of the Rings-Shape of Water-Wonder Woman-Harry Potter\nMovie:The Shining\nSimilar:Horror-Thriller-IT-Don't Breathe-JAWS-A Quiet Place-The Conjuring-The Shining-The Witch-The Nun\nMovie:The Revenant\nSimilar:Adventure-Thriller-Life of Pi-Jurassic Park-Godzilla-The Mummy-Taxi Driver-Spotlight-Moonlight-Schindler's List\nMovie:Inglorious Bastards\nSimilar:Drama-War-Forrest GumpAmerican Sniper-Pearl Harbour-Saving Private Ryan-12 Strong-Dunkirk-The Imitation Game-Atonement\nMovie:The Last of the Mohicans\nSimilar:Adventure-War-Gladiator-Braveheart-The Patriot-The Last Samurai-The Hobbit-Troy-King Arthur-Brave\nMovie:The Lord of the Rings\nSimilar:FantasyAdventureThe Hobbit-The Chronicles of Narnia-Harry Potter-The Wheel of Time-The Dark is Rising-The Golden Compass-The Hunger Games\nMovie:The Ten Commandments\nSimilar:Drama-Adventure-The King's Speech-Exodus: Gods and Kings-The Bible-The Passion of the Christ-The Nativity Story-The Chronicles of Narnia\nMovie:The Girl with the Dragon Tattoo\nSimilar:Crime-Drama-Law and Order SVUCSI-Mindhunter-The Fall-The Killing-The Great British Baking Show-The Sopranos\nMovie:Scarface\nSimilar:Crime-Drama-The Untouchables-Goodfellas-Wolf of Wall Street-The Departed-The Godfather II-The Dark Knight-The Departed";
+
+  var input = prompt_text + "\nMovie:" + param + "\n";
+
+  document.getElementById("movie_recommend_button").innerHTML =
+    "🍿 munching . . .";
+
+  var url =
+    "https://api.openai.com/v1/engines/davinci-instruct-beta/completions";
+
+  var return_value = "";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", Openai_key);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+
+      return_value = JSON.parse(xhr.responseText).choices[0].text;
+
+      var html =
+        "<div class='content_block'>\
+        <p class='summary_text'>" +
+        return_value +
+        "</p>\
+    <button class='intent_button' onclick='renderMovieRecommend()'>Reset</button>\
+     <br/><br/>\
+     </div>";
+
+      document.getElementById("modal_content").innerHTML = html;
+    }
+  };
+
+  var data = {
+    prompt: input,
+    temperature: 0.7,
+    max_tokens: 64,
+    top_p: 1.0,
+    frequency_penalty: 0.0,
+    presence_penalty: 0.0,
+    stop: ["\n"],
   };
   console.log(data);
 

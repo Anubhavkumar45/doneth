@@ -18,31 +18,31 @@ function renderFoodRecipe() {
     "<div class='content_block'>\
     <p class='summary_text' style='min-height: 10px; margin: unset;'>🍿 Find Food</p>\
     <div class='tab_section'>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[0] +
     ")'>🍝 Noodles</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[1] +
     ")'>🍳 Omlette</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[2] +
     ")'>🍉 Fruit Salad</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[3] +
     ")'>🍕 Pizza</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[4] +
     ")'>🥘 Curry</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[5] +
     ")'>🌭 Hotdog</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[6] +
     ")'>🍞 sandwich</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[7] +
     ")'>🍰 Cake</span>\
-        <span class='movie_prompt' onclick='getSpecificGenre(" +
+        <span class='movie_prompt' onclick='getSpecificFood(" +
     pre_genres[8] +
     ")'>🥟 Dumpling</span>\
   <span class='movie_prompt swiggy' onclick='window.open(" +
@@ -111,7 +111,7 @@ function findRecipe() {
   xhr.send(JSON.stringify(data));
 }
 
-function getSpecificGenre(param) {
+function getSpecificFood(param) {
   var url =
     "https://api.openai.com/v1/engines/davinci-instruct-beta/completions";
 
