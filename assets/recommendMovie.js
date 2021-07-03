@@ -1,14 +1,14 @@
 function renderMovieRecommend() {
   var pre_genres = [
-    "comedy",
-    "horror",
-    "romance",
-    "lgbtq",
-    "action",
-    "animation",
-    "documentary",
-    "drama",
-    "sci-fi",
+    '"' + "comedy" + '"',
+    '"' + "horror" + '"',
+    '"' + "romance" + '"',
+    '"' + "lgbtq" + '"',
+    '"' + "action" + '"',
+    '"' + "animation" + '"',
+    '"' + "documentary" + '"',
+    '"' + "drama" + '"',
+    '"' + "sci-fi" + '"',
   ];
   var html =
     "<div class='content_block'>\
